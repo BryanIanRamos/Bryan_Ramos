@@ -1,95 +1,121 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css"; // Import Bootstrap CSS
-import Navbar from "./components/Navbar";
-// import Navbar2 from "./components/Navbar2";
-// import Dino from "./assets/Dino.png";
-import Facebook from "./assets/facebook.png";
-import Profile from "./assets/Profile.png";
+// import Navbar from "./components/Navbar";
+import Navbar2 from "./components/Navbar2";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
+import Achievements from "./pages/Achievements";
+import Footer from "./components/Footer.js";
+import { useEffect, useRef, useState } from "react";
+import Logo from "./assets/Logo.png"; //nav extension
+import Main from "./pages/Main";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
+  const mainRef = useRef(null);
+  const aboutRef = useRef(null);
+  const skillsRef = useRef(null);
+  const projectRef = useRef(null);
+  const AchieveRef = useRef(null);
+
   return (
     <div className="App">
-      <Navbar />
-      <div
-        className="container verflow-hidden mt-5"
-        // style={{ height: "700px" }}
-      >
-        {/* Image Area  */}
-        <div className="relative w-auto my-5 row ">
-          <br />
-          <div
-            className="col-md-5  element-to-hide "
-            style={{
-              height: "500px",
-              marginTop: "30px",
-            }}
-          >
-            <img
-              src={Profile}
-              alt="Profile"
-              style={{
-                width: "90%",
-                zIndex: 1,
-              }}
-              data-aos="zoom-in-up"
-            />
-          </div>
-          <div className="col-1 element-to-hide"></div>
-          {/* Text Area */}
-          <div
-            className=" d-inline-block col "
-            style={{ marginTop: "6%" }}
-            data-aos="fade-left"
-          >
-            <p
-              className="text-black fw-bold font-family-Poppins  m-0 px-3 py-2 pt-[200px] lh-1 typewriter position-relative"
-              style={{ fontSize: "57.63px" }}
+      <Navbar2
+        about={aboutRef}
+        skills={skillsRef}
+        project={projectRef}
+        achieve={AchieveRef}
+      />
+      <ScrollToTop />
+      {/* navbar start  */}
+      {/* <div>
+        <nav
+          className={`navbar navbar-expand-lg navbar-light bg-white py-3 ${
+            isNavOpen ? "navbar-open" : ""
+          } ${hasScrolled ? "navbar-scrolled" : ""}`}
+          style={{
+            position: "fixed",
+            top: "0",
+            width: "100%",
+            zIndex: "100",
+            border: "1px solid transparent", // Initial border
+            transition: "border 0.3s ease-in-out", // Smooth transition for border change
+          }}
+        >
+          <div className="container px-5">
+            <a className="navbar-brand" href="index.html">
+              <img src={Logo} alt="Logo" />
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              onClick={toggleNav} // Toggle the navigation menu
+              aria-label="Toggle navigation"
             >
-              Hello, <br /> I’m Bryan Ramos.
-            </p>
-            {/* <img
-              src={Dino}
-              alt="DinoLogo"
-              className=" position-relative border"
-              style={{ left: "-320px", top: "-80px" }}
-              height={100.55}
-              width={100.55}
-              data-aos="fade-up"
-            /> */}
-            <div className="justify-content-center align-items-center ">
-              <p className="text-dark fw-medium font-family-Poppins col-md-12 m-0 px-3 py-2 typed-text ">
-                Aspiring Full-Stack and Game Developer, <br /> serious about
-                UI/UX, animations, <br />
-                and Game Development{" "}
-              </p>
-              <p className="text-secondary fs-5 fw-normal font-family-Poppins  m-0 px-3 py-2">
-                You can connect with me through{" "}
-              </p>
-              <div className="px-3 py-2">
-                <button className=" bg-dark rounded-3 text-white py-2 px-4 ">
-                  <img src={Facebook} alt="FaceBook" />
-                  <span style={{ fontSize: "12.51px" }}>
-                    {" "}
-                    Bryan Ian C. Ramos
-                  </span>
-                </button>
-              </div>
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div
+              className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`}
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                <li
+                  className=" nav-link link"
+                  onClick={() => scrollToSection(aboutRef)}
+                >
+                  About
+                </li>
+                <li
+                  className=" nav-link link"
+                  onClick={() => scrollToSection(skillsRef)}
+                >
+                  Skills
+                </li>
+                <li
+                  className=" nav-link link"
+                  onClick={() => scrollToSection(projectRef)}
+                >
+                  Projects
+                </li>
+                <li
+                  className=" nav-link link"
+                  onClick={() => scrollToSection(AchieveRef)}
+                >
+                  Achievements
+                </li>
+              </ul>
             </div>
           </div>
-          {/* <div className=" d-inline-block col-1"></div> */}
-          {/* --- */}
-        </div>
-      </div>
-      <body>
-        <About />
-        <Skills />
-        <Projects />
-        {/* cut me */}
+        </nav>
+      </div> */}
+      {/* nav bar end  */}
 
-        {/* <p className="typewriter">Typewriter CSS.</p> */}
+      <body>
+        <div ref={mainRef} className="Main">
+          <Main />
+        </div>
+        <div ref={aboutRef} className="About">
+          <About />
+        </div>
+        <div ref={skillsRef} className="Skills">
+          <Skills />
+        </div>
+        <div ref={projectRef} className="Projects">
+          <Projects />
+        </div>
+        <div ref={AchieveRef} className="Achievements">
+          <Achievements />
+        </div>
+
+        <Footer
+          about={aboutRef}
+          skills={skillsRef}
+          project={projectRef}
+          achieve={AchieveRef}
+        />
+
+        {/* cut me */}
       </body>
     </div>
   );

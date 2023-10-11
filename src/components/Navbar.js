@@ -9,7 +9,7 @@ function Navbar() {
         style={{ width: "100%", height: "50px" }}
       >
         <div className="row mx-5">
-          <div className="col-7 ">
+          <div className="col-lg-7 ">
             <img src={Logo} alt="Logo" />
           </div>
 
@@ -36,15 +36,6 @@ function Navbar() {
                   Skills
                 </a>
               </span>
-              <span className="col-4">
-                <a
-                  href="#"
-                  style={{ textDecoration: "none" }}
-                  className="text-black"
-                >
-                  Achievements
-                </a>
-              </span>
               <span className="col-2">
                 <a
                   href="#"
@@ -52,6 +43,15 @@ function Navbar() {
                   className="text-black"
                 >
                   Project
+                </a>
+              </span>
+              <span className="col-4">
+                <a
+                  href="#"
+                  style={{ textDecoration: "none" }}
+                  className="text-black"
+                >
+                  Achievements
                 </a>
               </span>
             </div>

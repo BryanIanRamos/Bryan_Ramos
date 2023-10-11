@@ -1,121 +1,99 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Logo from "../assets/Logo.png";
 
-function Navbar2() {
+function Navbar2({ about, skills, project, achieve }) {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  const scrollToSection = (elementRef) => {
+    window.scrollTo({
+      top: elementRef.current.offsetTop,
+      behavior: "smooth",
+    });
+  };
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if the user has scrolled down enough to trigger the border
+      if (window.scrollY > 10) {
+        setHasScrolled(true);
+      } else {
+        setHasScrolled(false);
+      }
+    };
+
+    // Add event listener to the window for scrolling
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li>
-            <a class="nav-link scrollto active" href="#hero">
-              Home
-            </a>
-          </li>
-          <li>
-            <a class="nav-link scrollto" href="#about">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a class="nav-link scrollto" href="#services">
-              Services
-            </a>
-          </li>
-          <li>
-            <a class="nav-link scrollto" href="#portfolio">
-              Portfolio
-            </a>
-          </li>
-          <li>
-            <a class="nav-link scrollto" href="#team">
-              Team
-            </a>
-          </li>
-          <li class="dropdown">
-            <a href="#">
-              <span>Drop Down</span> <i class="bi bi-chevron-down"></i>
-            </a>
-            <ul>
-              <li>
-                <a href="#">Drop Down 1</a>
+      <nav
+        className={`navbar navbar-expand-lg navbar-light bg-white py-3 ${
+          isNavOpen ? "navbar-open" : ""
+        } ${hasScrolled ? "navbar-scrolled" : ""}`}
+        style={{
+          position: "fixed",
+          top: "0",
+          width: "100%",
+          zIndex: "100",
+          border: "1px solid transparent", // Initial border
+          transition: "border 0.3s ease-in-out", // Smooth transition for border change
+        }}
+      >
+        <div className="container px-5">
+          <a className="navbar-brand col-1 " href="index.html">
+            <img src={Logo} alt="Logo" />
+          </a>
+          <button
+            className="navbar-toggler col-md-1 "
+            type="button"
+            onClick={toggleNav} // Toggle the navigation menu
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div
+            className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`}
+            id="navbarSupportedContent"
+          >
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder fs-5">
+              <li
+                className=" nav-link link btn mx-2"
+                onClick={() => scrollToSection(about)}
+              >
+                About
               </li>
-              <li class="dropdown">
-                <a href="#">
-                  <span>Deep Drop Down</span>{" "}
-                  <i class="bi bi-chevron-right"></i>
-                </a>
-                <ul>
-                  <li>
-                    <a href="#">Deep Drop Down 1</a>
-                  </li>
-                  <li>
-                    <a href="#">Deep Drop Down 2</a>
-                  </li>
-                  <li>
-                    <a href="#">Deep Drop Down 3</a>
-                  </li>
-                  <li>
-                    <a href="#">Deep Drop Down 4</a>
-                  </li>
-                  <li>
-                    <a href="#">Deep Drop Down 5</a>
-                  </li>
-                </ul>
+              <li
+                className=" nav-link link btn mx-2"
+                onClick={() => scrollToSection(skills)}
+              >
+                Skills
               </li>
-              <li>
-                <a href="#">Drop Down 2</a>
+              <li
+                className=" nav-link link btn mx-2"
+                onClick={() => scrollToSection(project)}
+              >
+                Projects
               </li>
-              <li>
-                <a href="#">Drop Down 3</a>
-              </li>
-              <li>
-                <a href="#">Drop Down 4</a>
+              <li
+                className=" nav-link link btn mx-2"
+                onClick={() => scrollToSection(achieve)}
+              >
+                Achievements
               </li>
             </ul>
-          </li>
-          <li class="dropdown megamenu">
-            <a href="#">
-              <span>Mega Menu</span> <i class="bi bi-chevron-down"></i>
-            </a>
-            <ul>
-              <li>
-                <strong>Column 1</strong>
-                <a href="#">Column 1 link 1</a>
-                <a href="#">Column 1 link 2</a>
-                <a href="#">Column 1 link 3</a>
-              </li>
-              <li>
-                <strong>Column 2</strong>
-                <a href="#">Column 2 link 1</a>
-                <a href="#">Column 2 link 2</a>
-                <a href="#">Column 3 link 3</a>
-              </li>
-              <li>
-                <strong>Column 3</strong>
-                <a href="#">Column 3 link 1</a>
-                <a href="#">Column 3 link 2</a>
-                <a href="#">Column 3 link 3</a>
-              </li>
-              <li>
-                <strong>Column 4</strong>
-                <a href="#">Column 4 link 1</a>
-                <a href="#">Column 4 link 2</a>
-                <a href="#">Column 4 link 3</a>
-              </li>
-              <li>
-                <strong>Column 5</strong>
-                <a href="#">Column 5 link 1</a>
-                <a href="#">Column 5 link 2</a>
-                <a href="#">Column 5 link 3</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a class="nav-link scrollto" href="#contact">
-              Contact
-            </a>
-          </li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+          </div>
+        </div>
       </nav>
     </div>
   );

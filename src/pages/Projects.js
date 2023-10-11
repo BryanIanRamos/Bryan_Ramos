@@ -7,11 +7,11 @@ import Game from "../assets/games.png";
 
 function Projects() {
   return (
-    <section class="content-section  " id="portfolio">
+    <section class="content-section py-5 " id="portfolio">
       <div class="container px-4 px-lg-5">
-        <div class="content-section-heading text-center">
-          <h3 class="text-secondary mb-0">Portfolio</h3>
-          <h2 class="mb-5">Recent Projects</h2>
+        <div class="content-section-heading text-start">
+          {/* <h3 class="text-secondary mb-0">Portfolio</h3> */}
+          <h2 class="mb-5 font-family-Poppins fw-bold">Recent Projects</h2>
         </div>
         {/* Card Starts Here! */}
         <div class="row gx-0">
@@ -19,10 +19,8 @@ function Projects() {
             <a class="portfolio-item" href="#!">
               <div class="caption">
                 <div class="caption-content">
-                  <div class="h2">Stationary</div>
-                  <p class="mb-0">
-                    A yellow pencil with envelopes on a clean, blue backdrop!
-                  </p>
+                  <div class="h-2 fw-bold">GlueCare</div>
+                  <p class="mb-0">Start-up Health Care Research Project</p>
                 </div>
               </div>
               <img class="img-fluid" src={CluCare} alt="..." />
@@ -32,10 +30,9 @@ function Projects() {
             <a class="portfolio-item" href="#!">
               <div class="caption">
                 <div class="caption-content">
-                  <div class="h2">Ice Cream</div>
+                  <div class="h-2 fw-bold">Cake Area</div>
                   <p class="mb-0">
-                    A dark blue background with a colored pencil, a clip, and a
-                    tiny ice cream cone!
+                    Application development project for log-in authentication{" "}
                   </p>
                 </div>
               </div>
@@ -46,11 +43,8 @@ function Projects() {
             <a class="portfolio-item" href="#!">
               <div class="caption">
                 <div class="caption-content">
-                  <div class="h2">Strawberries</div>
-                  <p class="mb-0">
-                    Strawberries are such a tasty snack, especially with a
-                    little sugar on top!
-                  </p>
+                  <div class="h-2 fw-bold">ClassMeet</div>
+                  <p class="mb-0">Online Education Technology Platform</p>
                 </div>
               </div>
               <img class="img-fluid" src={ClassMeet} alt="..." />
@@ -60,10 +54,10 @@ function Projects() {
             <a class="portfolio-item" href="#!">
               <div class="caption">
                 <div class="caption-content">
-                  <div class="h2">Workspace</div>
+                  <div class="h-2 fw-bold">Virtual Guy</div>
                   <p class="mb-0">
-                    A yellow workspace with some scissors, pencils, and other
-                    objects.
+                    Strawberries are such a tasty snack, especially with a
+                    little sugar on top!
                   </p>
                 </div>
               </div>
