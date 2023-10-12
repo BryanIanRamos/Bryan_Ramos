@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Cake from "../assets/Cake.png";
 import StartUp from "../assets/StartUp.png";
 import Programming from "../assets/Programming.png";
 import Navi from "../assets/NAVI.png";
@@ -24,7 +23,7 @@ function Achievements() {
       img: Programming,
       name: "Programming Contest",
       label: "2nd Placer",
-      description: "DAUG 2022 competition \n in Caraga State University",
+      description: "DAUG 2022 competition in Caraga State University",
     },
     {
       id: 3,
@@ -86,11 +85,15 @@ function Achievements() {
   }
 
   return (
-    <div id="team" class="team px-lg-4">
-      <div class="container " style={{ paddingTop: "20px" }}>
+    <div
+      id="team"
+      className="team px-lg-4"
+      style={{ paddingTop: "90px", paddingBottom: "90px" }}
+    >
+      <div className="container " style={{ paddingTop: "20px" }}>
         <div className="row ">
           <div
-            class="section-title col"
+            className="section-title col"
             data-aos="fade-in"
             data-aos-delay="100"
           >
@@ -98,28 +101,34 @@ function Achievements() {
               Achievements
             </h1>
           </div>
-          <div class="col-lg-3 text-lg-end ">
-            <button
+          <div className="col-lg-3 text-lg-end ">
+            <div
               onClick={handleButtonClick}
-              class="btn btn-secondary py-2 px-3  "
+              className="btn btn-secondary py-2 px-3  "
+              data-aos="fade-up"
             >
               {Name}
-            </button>
+            </div>
           </div>
         </div>
 
-        <div class="row mt-4">
+        <div className="row mt-4">
           {" "}
           {object.map((item) => (
-            <div class="col-lg-4 col-md-6 mb-5" id={item.id}>
-              <div class="member" data-aos="fade-up">
-                <div class="pic">
-                  <img src={item.img} class="img-fluid" alt="" height={"10"} />
+            <div className="col-lg-4 col-md-6 mb-5" key={item.id}>
+              <div className="member" data-aos="fade-up">
+                <div className="pic">
+                  <img
+                    src={item.img}
+                    className="img-fluid"
+                    alt=""
+                    height={"10"}
+                  />
                 </div>
-                <div class="member-info">
+                <div className="member-info">
                   <h4>{item.name}</h4>
                   <span>{item.label}</span>
-                  <div class="social">
+                  <div className="social">
                     <p>{item.description}</p>
                   </div>
                 </div>

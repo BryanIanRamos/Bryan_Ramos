@@ -29,36 +29,41 @@ function Skills() {
   ];
   return (
     <div
-      class="container-fluid bg-light "
+      className="container-fluid bg-light "
       id="service"
       style={{ paddingTop: "90px", paddingBottom: "90px" }}
     >
-      <div class="container">
-        <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="col-lg-6">
-            <h1 class="display-5 mb-0 font-family-Poppins fw-bold">Skills</h1>
+      <div className="container">
+        <div className="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+          <div className="col-lg-6">
+            <h1 className="display-5 mb-0 font-family-Poppins fw-bold">
+              Skills
+            </h1>
           </div>
-          <div class="col-lg-6 text-lg-end">
-            <a class="btn btn-secondary py-2 px-3 " href="#">
+          <div className="col-lg-6 text-lg-end">
+            <a className="btn btn-secondary py-2 px-3 " href="#">
               Hire Me
             </a>
           </div>
         </div>
-        <div class="row g-4">
+        <div className="row g-4">
           {/* cards here! */}
           {skills.map((item) => (
             <div
-              class="col-lg-6 wow fadeInUp"
+              className="col-lg-6 wow fadeInUp"
               data-wow-delay="0.1s"
               key={item.id}
             >
-              <div class="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5">
-                <div class="bg-icon flex-shrink-0 mb-3">
-                  <i class="fa fa-crop-alt fa-2x text-dark"></i>
+              <div
+                className="service-item d-flex flex-column flex-sm-row bg-white rounded h-100 p-4 p-lg-5"
+                data-aos="zoom-out-down"
+              >
+                <div className="bg-icon flex-shrink-0 mb-3">
+                  <i className="fa fa-crop-alt fa-2x text-dark"></i>
                 </div>
-                <div class="ms-sm-4">
+                <div className="ms-sm-4">
                   {/* <img></img> */}
-                  <h4 class="mb-3">{item.title}</h4>
+                  <h4 className="mb-3">{item.title}</h4>
 
                   <span>{item.description}</span>
                 </div>
