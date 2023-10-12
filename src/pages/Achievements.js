@@ -7,6 +7,7 @@ import ProgCon from "../assets/ProgCont.png";
 import HTML from "../assets/HTML.png";
 import CSS from "../assets/CSS.png";
 import GlueCare from "../assets/CluCareCert.png";
+import DICT from "../assets/DICT.png";
 
 function Achievements() {
   const [change, changeSet] = useState(false);
@@ -67,6 +68,13 @@ function Achievements() {
     {
       id: 4,
       img: GlueCare,
+      name: "Health Technology Pitchimg Competition",
+      label: "Certificate of Recognition",
+      description: "Caraga Health Research And Develpment Consortium",
+    },
+    {
+      id: 5,
+      img: DICT,
       name: "Health Technology Pitchimg Competition",
       label: "Certificate of Recognition",
       description: "Caraga Health Research And Develpment Consortium",
